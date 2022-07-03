@@ -1,0 +1,47 @@
+<div *ngIf="surveyResponse" style="margin: 100px 50px 50px 50px;top:50px;">
+    <div *ngIf="surveyResponse.isAssigned && !surveyResponse.isSubmitted">
+        <mat-card>
+            <ol>
+                <li *ngFor="let question of questions;let index = index;trackBy:trackByIndex;">
+                    <div class="question">
+                        {{question.question}}
+                    </div>
+                 <div *ngIf="question.type=='radio'">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" 
+                            class="example-radio-group">
+                            <div *ngFor="let option of question.options" class="options">
+                                <mat-radio-button class="example-radio-button" [value]="option" (change)="radioChange(index,$event)">
+                                    {{option}}
+                                </mat-radio-button>
+                            </div>
+                        </mat-radio-group>
+
+                    </div>
+                    <div *ngIf="question.type=='checkbox'">
+                        <div *ngFor="let option of question.options" class="options">
+                            <mat-checkbox [value]="option" (change)="checkboxChange(index,option)">{{option}}</mat-checkbox>
+                        </div>
+                    </div>
+                    <div *ngIf="question.type=='text'">
+                        <div>
+                            <mat-form-field style="width:100%;">
+                                <textarea  matInput placeholder="Please Enter Your Response....." #inputText  (blur)="inputBlur(index,inputText.value)"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+            <div style="text-align: center;">
+                <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+            </div>
+        </mat-card>
+    </div>
+    <div class="center-text">
+        <div *ngIf="!surveyResponse.isAssigned">
+            Hi User,You are not assigned to any survey.
+        </div>
+        <div *ngIf="surveyResponse.isSubmitted">
+            Hi User,You have already submitted this survey.
+        </div>
+    </div>
+</div>

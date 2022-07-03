@@ -1,0 +1,18 @@
+.top-nav{
+    background: #303030;
+    z-index: 1;
+    border-bottom: 1px solid #ccc;
+    padding-left: 30px;
+	color:white;
+	height:50px;
+}
+
+.bottom-nav{
+    background: #303030;
+    z-index: 1;
+    border-top: 1px solid #ccc;
+    justify-content: center;
+	color:white;
+	height:20px;
+	font-size: 12px;
+}
