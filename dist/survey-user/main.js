@@ -190,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: 'survey-user/survey/:id/:email', component: _survey_survey_component__WEBPACK_IMPORTED_MODULE_2__["SurveyComponent"] }
+    { path: 'survey/:id/:email', component: _survey_survey_component__WEBPACK_IMPORTED_MODULE_2__["SurveyComponent"] }
 ];
 class AppRoutingModule {
 }
