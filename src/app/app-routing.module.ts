@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'survey/:id/:email', component: SurveyComponent },
   {
     path: '**',
-    redirectTo: 'survey',
+    redirectTo: 'survey/62c3302056e62c001284644e/vikasgarg284@gmail.com',
     pathMatch: 'full',
   },
 ];
