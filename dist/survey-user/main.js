@@ -191,6 +191,11 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: 'survey/:id/:email', component: _survey_survey_component__WEBPACK_IMPORTED_MODULE_2__["SurveyComponent"] },
+    {
+        path: '**',
+        redirectTo: 'survey/62c3302056e62c001284644e/vikasgarg284@gmail.com',
+        pathMatch: 'full',
+    },
 ];
 class AppRoutingModule {
 }
@@ -201,7 +206,7 @@ AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineI
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
                 imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
-                exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+                exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
             }]
     }], null, null); })();
 
