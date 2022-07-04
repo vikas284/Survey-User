@@ -400,18 +400,20 @@ class SurveyComponent {
         this.http = http;
         this.surveyResponse = {};
         this.questions = [];
-        this.id = "";
-        this.email = "";
+        this.id = '';
+        this.email = '';
         this.id = this.route.snapshot.paramMap.get('id');
         this.email = this.route.snapshot.paramMap.get('email');
     }
     ngOnInit() {
-        this.http.get(`http://localhost:3000/survey/${this.id}/${this.email}`).subscribe((response) => {
+        this.http
+            .get(`http://13.41.83.79/api-survey/survey/${this.id}/${this.email}`)
+            .subscribe((response) => {
             this.surveyResponse = response;
             if (response.data) {
                 this.questions = response.data.questions;
                 for (const ques of this.questions) {
-                    if (ques.type == "checkbox") {
+                    if (ques.type == 'checkbox') {
                         ques.answer = [];
                     }
                 }
@@ -440,10 +442,11 @@ class SurveyComponent {
         let surveyResponse = {
             surveyId: this.id,
             email: this.email,
-            questions: this.questions
+            questions: this.questions,
         };
-        this.http.post(`http://localhost:3000/survey/response`, surveyResponse).subscribe((response) => {
-        });
+        this.http
+            .post(`http://13.41.83.79/api-survey/survey/response`, surveyResponse)
+            .subscribe((response) => { });
     }
 }
 SurveyComponent.ɵfac = function SurveyComponent_Factory(t) { return new (t || SurveyComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
@@ -457,7 +460,7 @@ SurveyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         args: [{
                 selector: 'survey',
                 templateUrl: './survey.component.html',
-                styleUrls: ['./survey.component.css']
+                styleUrls: ['./survey.component.css'],
             }]
     }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] }, { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
 
